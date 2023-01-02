@@ -1,5 +1,4 @@
 import ExpenseItem from "./ExpenseItem";
-import Card from "../UI/Card";
 import "./Expenses.css";
 import ExpensesFilter from "./ExpensesFilter";
 import { useState } from "react";
@@ -20,7 +19,7 @@ function Expenses(props) {
 
   return (
     <div>
-      <Card className="expenses">
+      <div className="expenses">
         <ExpensesFilter
           onChangeFilter={filterChangeHandler}
           selected={filteredYear}
@@ -28,13 +27,13 @@ function Expenses(props) {
         {filteredExpenses.map((expense) => (
           <ExpenseItem
             /* må fikse key til noe annet */
-            key={Math.random}
+            key={Math.random + expense.title}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
           />
         ))}
-      </Card>
+      </div>
     </div>
   );
 }
