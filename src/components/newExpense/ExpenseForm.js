@@ -8,15 +8,19 @@ function ExpenseForm(props) {
   const [enteredDate, setEnteredDate] = useState("");
 
   const submitHandler = (event) => {
-    event.preventDefault();
-    console.log("submitted");
-    const expenseData = {
-      title: enteredTitle,
-      amount: enteredAmount,
-      date: new Date(enteredDate),
-    };
-
-    props.onSaveExpenseData(expenseData);
+    if (!enteredTitle || !enteredAmount || !enteredDate) {
+      console.log("not submitted");
+      alert("Please fill out all the fields to add an expense");
+    } else {
+      event.preventDefault();
+      console.log("submitted");
+      const expenseData = {
+        title: enteredTitle,
+        amount: enteredAmount,
+        date: new Date(enteredDate),
+      };
+      props.onSaveExpenseData(expenseData);
+    }
 
     //clear the text fields
     setEnteredTitle("");
