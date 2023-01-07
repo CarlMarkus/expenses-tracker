@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
 
@@ -7,27 +8,25 @@ import "./ExpenseItem.css";
 function ExpenseItem(props) {
   // const [title, setTitle] = useState(props.title);
   console.log(
-    "ExpenseItem evaluated by react. Dette skjer 4 ganger når siden lastes fordi vi laster inn 4 components"
+    "ExpenseItem evaluated by react. Dette skjer X ganger når siden lastes fordi vi laster inn X components"
   );
 
-  /*
+  const [isVisible, setIsVisible] = useState(true);
 
   const clickHandler = () => {
-    setTitle("yo");
+    setIsVisible(false);
   };
 
-  */
-
-  return (
+  return isVisible ? (
     <div className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <div className="expense-item__price">{props.amount} NOK</div>
       </div>
-      {/*<button onClick={clickHandler}>Change title</button> */}
+      {<button onClick={clickHandler}>Delete</button>}
     </div>
-  );
+  ) : null;
 }
 
 export default ExpenseItem;

@@ -9,7 +9,7 @@ const DUMMY_EXPENSES = [
     amount: 120,
     date: new Date(2022, 7, 14),
   },
-  { id: "e2", title: "TV", amount: 12000, date: new Date(2021, 2, 12) },
+  { id: "e2", title: "TV", amount: 12000, date: new Date(2023, 2, 12) },
   {
     id: "e3",
     title: "Laptop",
