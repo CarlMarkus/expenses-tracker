@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Expenses from "./components/expenses/Expenses";
 import NewExpense from "./components/newExpense/NewExpense";
+import expensesLogo from "./expensesLogo.svg";
 
 const DUMMY_EXPENSES = [
   {
@@ -35,7 +36,10 @@ function App() {
 
   return (
     <div>
-      <h1>Expenses</h1>
+      <div className="headerImg">
+        <h1>Expenses...</h1>
+        <img src={expensesLogo} alt="Your SVG" />
+      </div>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
